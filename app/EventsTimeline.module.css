@@ -1,0 +1,405 @@
+.timelineContainer {
+  max-width: 825px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.controlsHeader {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.searchWrapper {
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #666;
+  background: #222;
+}
+
+.filterRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filterGroup {
+  display: flex;
+  gap: 0.5rem;
+  background: #1a1a1a;
+  padding: 0.25rem;
+  border-radius: 99px;
+  border: 1px solid #333;
+}
+
+.filterBtn {
+  background: transparent;
+  border: none;
+  color: #888;
+  padding: 0.5rem 1.25rem;
+  border-radius: 99px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.filterBtn:hover {
+  color: #fff;
+}
+
+.filterBtn.active {
+  background: #333;
+  color: #fff;
+  font-weight: 600;
+}
+
+.registeredCount {
+  font-size: 0.95rem;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #1a1a1a;
+  padding: 0.5rem 1rem;
+  border-radius: 99px;
+  border: 1px solid #333;
+}
+
+.registeredCount span {
+  color: #fff;
+  font-weight: 700;
+}
+
+.noEvents {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+.timelineContainer::before {
+  content: '';
+  position: absolute;
+  left: 2.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #333;
+  transform: translateX(-50%);
+}
+
+/* Adjustments for Timeline Alignment */
+.timelineContainer::before {
+  left: 2.5rem;
+}
+
+.dateGroup {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timelineMarker {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.timelineNode {
+  width: 16px;
+  height: 16px;
+  background-color: #555;
+  border: 3px solid #111;
+  border-radius: 50%;
+  position: absolute;
+  left: 0.5rem;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.dateHeader {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #aaa;
+  margin-left: 2.5rem;
+}
+
+.eventsList {
+  margin-left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.eventCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 24px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.eventCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+  border-color: #444;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardTime {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #f0f0f0;
+}
+
+.cardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.cardMeta span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cardActions {
+  margin-top: 0.5rem;
+}
+
+.registerBtn {
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid #444;
+  color: #ccc;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.registerBtn:hover {
+  border-color: #666;
+  color: #fff;
+}
+
+.registerBtn.registered {
+  background: #2e7d32;
+  border-color: #2e7d32;
+  color: #fff;
+}
+
+.cardImageWrapper {
+  flex-shrink: 0;
+}
+
+.cardImage {
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Drawer */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 40;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  pointer-events: none;
+}
+
+.backdrop.isOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 500px;
+  background: #161616;
+  z-index: 50;
+  transform: translateX(100%);
+  transition: transform 350ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer.isOpen {
+  transform: translateX(0);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.drawerContent {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.drawerImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+.drawerDetails {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.drawerTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.drawerMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+.drawerMeta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.registrationSection {
+  background: #222;
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.approvalBadge {
+  background: #4a3a22;
+  color: #ffc700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.registrationSection p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #ddd;
+  padding: 0.5rem 0;
+  border-top: 1px solid #333;
+  margin-top: 0.5rem;
+}
+
+.joinButton {
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.joinButton:hover {
+  background: #e0e0e0;
+}
+
+.aboutSection h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.aboutSection p {
+  margin: 0;
+  line-height: 1.6;
+  color: #bbb;
+}
+
+@media (max-width: 768px) {
+  .timelineContainer {
+    padding: 0 1rem;
+  }
+  .timelineContainer::before, .timelineNode { left: 1.5rem; }
+  .dateHeader, .eventsList { margin-left: 3rem; }
+  .drawer { width: 100%; }
+}
