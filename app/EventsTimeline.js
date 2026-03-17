@@ -78,6 +78,7 @@ const EventDrawer = ({ event, isOpen, onClose, isRegistered, onRegister }) => {
               </div>
               <button 
                 className={`${styles.joinButton} ${isRegistered ? styles.registeredDrawerBtn : ''}`}
+                style={isRegistered ? { opacity: 0.6 } : {}}
                 onClick={() => onRegister(event.id)}
               >
                 {isRegistered ? "Registered" : "Request to Join"}
